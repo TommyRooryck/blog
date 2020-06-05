@@ -116,10 +116,10 @@
             <?php
             /*
                 $user = new User();
-                $user->username = "Tom";
-                $user->password = "Test321";
-                $user->first_name = "Tom";
-                $user->last_name = "De Cursist";
+                $user->username = "TyeishaV";
+                $user->password = "lol";
+                $user->first_name = "Tyeisha";
+                $user->last_name = "Vansevenhant";
 
                 $user->create();
             */

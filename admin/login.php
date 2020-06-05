@@ -4,10 +4,10 @@
 $the_message = ''; //Declareren van de variabele indien er een verkeerde username of password wordt ingegeven. We doen dit zodat we geen undefined error verkrijgen. De tekst komt later in de if-statement
 
 //We testen eerst of er een sessie actief is. Bij een positief antwoord van de method is_signed_in(), redirecten we naar de index.php van het admin gedeelte, m.a.w. backend van de site.
+
 if ($session->is_signed_in()){
     redirect("index.php");
 }
-
 
 //Wanneer er geen sessie actief is wordt het onderstaande uitgevoerd:
 if (isset($_POST['submit'])){

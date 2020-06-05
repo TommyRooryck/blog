@@ -70,6 +70,7 @@ class Session
         unset($this->user_id);
         $this->signed_in = false;
     }
+
     /*
          * Wanneer deze methode wordt aangesproken worden de variabele $_SESSION en de parameter user_id "geledigd" = unset
          * Daarnaast wordt de parameter signed_in ook op false gezet = uitgelogd
