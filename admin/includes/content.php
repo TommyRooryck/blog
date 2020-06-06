@@ -161,7 +161,36 @@
             */
             ?>
             <hr>
+            <h2>Toon alle foto's</h2>
+            <?php
 
+            $photos = Photo::find_all();
+            foreach ($photos as $photo){
+                echo $photo->title . "<br>";
+            }
+
+            ?>
+            <hr>
+            <h2>Toevoegen van een foto</h2>
+            <?php
+            /*
+                $photo = new Photo();
+                $photo->title = "Panda";
+                $photo->description = "Lorem ipsum";
+                $photo->filename = "panda.jpg";
+                $photo->type = "jpg";
+                $photo->size = "80";
+
+                $photo->save();
+            */
+            ?>
+            <hr>
+            <h2>Path</h2>
+            <?php
+
+            echo INCLUDES_PATH;
+
+            ?>
         </div>
     </div>
 <!-- /.container-fluid -->
