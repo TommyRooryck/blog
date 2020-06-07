@@ -12,9 +12,9 @@
 //Hier gaan we de constanten voor de siteroot bepalen, de locatie van de includes map en de locatie van de images map
 
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-define('SITE_ROOT', 'C:' . DS . 'wamp64' . DS . 'www' . DS . 'blog');
+define('SITE_ROOT',  DS . 'wamp64' . DS . 'www' . DS  . 'blog');
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT . DS . 'admin' . DS . 'includes');
-defined('IMAGES_PATH') ? null : define('IMAGES_PATH', SITE_ROOT . DS . 'admin' .DS . 'img');
+defined('IMAGES_PATH') ? null : define('IMAGES_PATH', SITE_ROOT . DS . 'admin' . DS . 'img');
 
 ?>
 <!-- Require_once zal ons een error geven. Include geeft ons enkel een warning. -->

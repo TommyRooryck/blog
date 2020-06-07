@@ -45,7 +45,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="upload.php">
             <span>Upload</span>
             <i class="fas fa-upload"></i>
         </a>
@@ -53,14 +53,14 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="photos.php">
             <span>Photos</span>
             <i class="fas fa-camera"></i>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="comments.php">
             <span>Comments</span>
             <i class="fas fa-comments"></i>
         </a>

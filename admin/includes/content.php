@@ -188,7 +188,7 @@
             <h2>Path</h2>
             <?php
 
-            echo INCLUDES_PATH;
+            echo IMAGES_PATH;
 
             ?>
         </div>
