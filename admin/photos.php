@@ -16,8 +16,11 @@ $photos = Photo::find_all();
                     <th>Photo</th>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Description</th>
                     <th>File Name</th>
                     <th>Size</th>
+                    <th>Caption</th>
+                    <th>Alternate_text</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,9 +31,13 @@ $photos = Photo::find_all();
                     <td><img src="<?php echo $photo->picture_path(); ?>" height="62" width="62" alt=""</td>
                     <td class="d-flex align-self-stretch"> <?php echo $photo->id; ?></td>
                     <td><?php echo $photo->title; ?></td>
+                    <td><?php echo $photo->description ?></td>
                     <td><?php echo $photo->filename; ?></td>
                     <td><?php echo $photo->size; ?></td>
-                    <td><a href="delete_Photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger rounded-0"><i class="faer fa-trash-alt"></i></a></td>
+                    <td><?php echo $photo->caption; ?></td>
+                    <td><?php echo $photo->alternate_text; ?></td>
+                    <td><a class="btn btn-danger rounded-0" href="edit_Photo.php?id=<?php echo $photo->id; ?>"><i class="far fa-edit"></i></a></td>
+                    <td><a href="delete_Photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger rounded-0"><i class="far fa-trash-alt"></i></a></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>

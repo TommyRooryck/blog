@@ -16,6 +16,7 @@ if (empty($_GET['id'])){
             $photo->description = trim($_POST['description']);
             $photo->caption = trim($_POST['caption']);
             $photo->alternate_text = trim($_POST['alternate_text']);
+            $photo->
             $photo->update();
             redirect('photos.php');
         }

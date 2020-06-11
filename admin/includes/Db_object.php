@@ -268,7 +268,7 @@ class Db_object
     }
     /*
          * Alle properties van de class in een associatieve array plaatsen, nl. $properties_assoc.
-         * Deze array wordt gevuld met het veld end en de  value zoals de schrijfwijze van het sql statement dit verwacht, nl. "{key} = '{$value}'"
+         * Deze array wordt gevuld met het veld en en de  value zoals de schrijfwijze van het sql statement dit verwacht, nl. "{key} = '{$value}'"
     */
 
     /**CRUD: Delete method**/

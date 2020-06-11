@@ -11,6 +11,9 @@ $message = "";
 if (isset($_POST['submit'])) {
     $photo = new Photo();
     $photo->title = $_POST['title'];
+    $photo->caption= $_POST['caption'];
+    $photo->description = $_POST['description'];
+    $photo->alternate_text = $_POST['alternate_text'];
     $photo->set_file($_FILES['file']);
 
     if ($photo->save()) {
@@ -32,9 +35,26 @@ if (isset($_POST['submit'])) {
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <label for="caption">Caption:</label>
+                    <input type="text" name="caption" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="alternate_text">Alternate text:</label>
+                    <input type="text" name="alternate_text" class="form-control">
+                </div>
+
                 <div class="form-group">
                     <input type="file" name="file" class="form-control">
                 </div>
+
                 <input type="submit" name="submit" value="submit" class="btn btn-primary">
             </form>
         </div>
