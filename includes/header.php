@@ -1,3 +1,5 @@
+<?php require_once ("admin/includes/header.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

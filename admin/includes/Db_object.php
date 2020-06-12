@@ -329,4 +329,15 @@ class Db_object
         UPLOAD_ERR_CANT_WRITE => "Failed to write to disk",
         UPLOAD_ERR_EXTENSION => "A php extension stopped your upload"
     );
+
+    /**Automatisch laten tellen van het aantal records**/
+    public static function count_all()
+    {
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . static::$db_table; //sql statement
+        $result_set = $database->query($sql); //sql wordt uitgevoerd
+        $row = mysqli_fetch_array(($result_set)); //het resultaat wordt in de variabele $row geplaats
+
+        return array_shift($row); //Het eerste element binnen $row wordt verwijderd en returned het verwijderde element
+    }
 }

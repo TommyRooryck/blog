@@ -21,6 +21,10 @@ $photos = Photo::find_all();
                     <th>Size</th>
                     <th>Caption</th>
                     <th>Alternate_text</th>
+                    <th>Comments</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,8 +40,18 @@ $photos = Photo::find_all();
                     <td><?php echo $photo->size; ?></td>
                     <td><?php echo $photo->caption; ?></td>
                     <td><?php echo $photo->alternate_text; ?></td>
+                    <td>
+                        <a href="comments_Photo.php?id=<?php echo $photo->id; ?>">
+                        <?php
+                            $comments = Comment::find_the_comments($photo->id);
+                            echo count($comments);
+                        ?>
+                        </a>
+                    </td>
+                    <td><a href="../photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger rounded-0"><i class="fas fa-eye"></i></a></td>
                     <td><a class="btn btn-danger rounded-0" href="edit_Photo.php?id=<?php echo $photo->id; ?>"><i class="far fa-edit"></i></a></td>
                     <td><a href="delete_Photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger rounded-0"><i class="far fa-trash-alt"></i></a></td>
+
                 </tr>
                 <?php endforeach; ?>
                 </tbody>

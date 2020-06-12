@@ -5,19 +5,18 @@ if (!$session->is_signed_in()){
 }
 
 if (empty($_GET['id'])){
-    redirect('users.php');
+    redirect('comments.php');
 }
 
-$user = User::find_by_id($_GET['id']);
-if ($user){
-    $user->delete();
-    redirect('users.php');
+$comment = comment::find_by_id($_GET['id']);
+if ($comment){
+    $comment->delete();
+    redirect('comments.php');
 } else{
-    redirect('users.php');
+    redirect('comments.php');
 }
 ?>
 
 <?php include ("includes/sidebar.php");?>
 <?php include  ("includes/content-top.php"); ?>
-<h1>Welkom delete pagina</h1>
 <?php include ("includes/footer.php");

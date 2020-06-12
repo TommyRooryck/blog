@@ -4,6 +4,13 @@
         redirect('login.php');
     }
 
+    //Aantallen in variabelen plaatsen om deze te kunnen aanspreken in de content.php
+
+    $aantalUsers = User::find_all();
+    $aantalPhotos = Photo::find_all();
+    $aantalComments = Comment::find_all();
+
+
 /*
      *  !session = het omgekeerde van een sessie m.a.w. wanneer we geen user vinden die een sessie heeft.
      * In dit geval voeren we de methode is_signed_in uit.

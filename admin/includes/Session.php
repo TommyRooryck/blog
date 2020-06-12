@@ -18,6 +18,16 @@ class Session
         session_start();
         $this->check_the_login();
         $this->check_message();
+        $this->visitor_count();
+    }
+
+    public function visitor_count() //Page views optellen
+    {
+        if (isset($_SESSION['count'])){
+            return $this->count = $_SESSION['count']++; //Telkens als er een sessie wordt gevonden wordt de 'count' attribuut opgeteld (via increment[++])
+        } else{
+            return $_SESSION['count'] = 1; //Als er geen sessie wordt gevonden wordt count gelijkgesteld aan 1 en wordt deze niet geincrementeerd
+        }
     }
 
     private function check_the_login() //Checken of het user id wel degelijk werd geset door de sessie
@@ -103,6 +113,8 @@ class Session
          * De check_message functie dient dus eigenlijk geladen te worden telkens er een nieuwe sessie door de gebruiker wordt gestart!
          * Daarom plaatsen we deze in de __construct van de session class
     */
+
+
 }
 
 $session = new Session(); //Start een session id via deze nieuwe instantie

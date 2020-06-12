@@ -20,7 +20,7 @@ defined('IMAGES_PATH') ? null : define('IMAGES_PATH', SITE_ROOT . DS . 'admin' .
 <?php require_once ("Database.php"); ?>
 <?php require_once ("User.php"); ?>
 <?php require_once ("Session.php"); ?>
-<?php require_once("Photo.php"); ?>
+<?php require_once(dirname(__FILE__) . DS . 'Photo.php'); ?>
 <?php require_once ("Comment.php"); ?>
 
 
