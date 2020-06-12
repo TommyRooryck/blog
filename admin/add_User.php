@@ -1,25 +1,23 @@
 <?php
 
-require_once ("includes/header.php");
+include ("includes/header.php");
+
+
 
 if (!$session->is_signed_in()){
     redirect("login.php");
 }
-//$photos = Photo::find_all();
-if (empty($_GET['id'])){
-    redirect("photos.php");
-}else{
-    $photo = Photo::find_by_id($_GET['id']);
-    if (isset($_POST['update'])){
-        if ($photo){
-            $photo->title = trim($_POST['title']);
-            $photo->description = trim($_POST['description']);
-            $photo->caption = trim($_POST['caption']);
-            $photo->alternate_text = trim($_POST['alternate_text']);
-            $photo->
-            $photo->update();
-            redirect('photos.php');
-        }
+
+$user= new User(); //Creëer een niewe instantie van het object user met de naam $user
+if (isset($_POST['add_user'])){
+    if ($user){
+        $user->username = trim($_POST['username']);
+        $user->password = trim($_POST['password']);
+        $user->first_name = trim($_POST['first_name']);
+        $user->last_name= trim($_POST['last_name']);
+        $user->set_file($_FILES['image']);
+        $user->save_user_and_image();
+        redirect('users.php');
     }
 }
 
@@ -38,74 +36,32 @@ if (empty($_GET['id'])){
 <?php include("includes/content-top.php"); ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-13">
-            <h1>Edit Page</h1>
-            <form action="edit_Photo.php?id=<?php  echo $photo->id; ?>" method="post">
+        <div class="col-12">
+            <h1>Add User</h1>
+            <form action="add_User.php" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-8 col-md-8">
+                    <div class="col-12">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control">
                         </div>
                         <div class="form-group">
-                            <a href="#" class="thumbnail"><img src="<?php echo $photo->picture_path(); ?> " height="100"
-                                                               alt=""></a>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control">
                         </div>
-
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="" cols="30" rows="10"
-                                      class="form-control"><?php echo $photo->description; ?></textarea>
+                            <label for="file">User Image</label>
+                            <input type="file" name="image" class="form-control">
                         </div>
-
                         <div class="form-group">
-                            <label for="caption">Caption</label>
-                            <input type="text" name="caption" class="form-control"
-                                   value="<?php echo $photo->caption ?>">
+                            <label for="first_name">First Name</label>
+                            <input type="text" name="first_name" class="form-control">
                         </div>
-
                         <div class="form-group">
-                            <label for="alternate_text">Alternate text</label>
-                            <input type="text" name="alternate_text" class="form-control"
-                                   value="<?php echo $photo->alternate_text; ?>">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" name="last_name" class="form-control">
                         </div>
-                    </div>
-
-                    <div class=" col-12 col-md-4">
-                        <div class="photo-info-box">
-                            <div class="info-box-header">
-                                <h4>Save <span id="toggle" class="fas fa-arrow-up"></span></h4>
-                            </div>
-                            <div class="inside">
-                                <div class="box-inner">
-                                    <p class="text">
-                                        <span class="fas fa-calendar">Uploaded on: April 01, 2020 @ 5:26</span>
-                                    </p>
-                                    <p class="text font-weight-bold">
-                                         Photo Id: <span class="data photo_id_box font-weight-normal"> <?php echo $photo->id; ?></span>
-                                    </p>
-                                    <p class="text font-weight-bold">
-                                        Filename:   <span class="data font-weight-normal"><?php echo $photo->filename; ?></span>
-                                    </p>
-                                    <p class="text font-weight-bold">
-                                        Filetype:  <span class="data font-weight-normal"><?php echo $photo->type; ?></span>
-                                    </p>
-                                    <p class="text font-weight-bold">
-                                        File Size: <span class="data font-weight-normal"> <?php echo $photo->size; ?></span>
-                                    </p>
-                                </div>
-                                <div class="info-box-footer">
-                                    <div class="info-box-delete float-left">
-                                        <a href="delete_Photo.php?id=<?php echo $photo->id; ?>"
-                                           class="btn btn-danger btn-lg">Delete</a>
-                                    </div>
-                                    <div class="info-box-update float-right">
-                                        <input type="submit" name="update" value="Update"
-                                               class="btn btn-primary btn-lg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <input type="submit" name="add_user" value="Add User" class="btn btn-primary">
                     </div>
                 </div>
             </form>

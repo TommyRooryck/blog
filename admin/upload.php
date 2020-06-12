@@ -1,28 +1,36 @@
 <?php include ("includes/header.php"); ?>
-<?php include ("includes/sidebar.php"); ?>
-<?php include ("includes/content-top.php"); ?>
-
-<?php
-if (!$session->is_signed_in()){
+<?php  if (!$session->is_signed_in()){
     redirect('login.php');
 }
 
+
 $message = "";
 if (isset($_POST['submit'])) {
-    $photo = new Photo();
-    $photo->title = $_POST['title'];
-    $photo->caption= $_POST['caption'];
-    $photo->description = $_POST['description'];
-    $photo->alternate_text = $_POST['alternate_text'];
-    $photo->set_file($_FILES['file']);
+    $photo = new Photo(); //maak nieuw object
+    $photo->title = $_POST['title']; //haal info uit de form en steek het in de property
+    $photo->caption = $_POST['caption']; //idem
+    $photo->description = $_POST['description']; //idem
+    $photo->alternate_text = $_POST['alternate_text']; //idem
+    $photo->set_file($_FILES['file']); //voer de setfile() method uit
+
 
     if ($photo->save()) {
-        $message = "Photo uploaded successfully";
+       /* $message = "Photo uploaded successfully";
+        $message_output = "<script type='text/javascript'> alert('$message') </script>";
+        echo $message_output; */
+        redirect('photos.php');
     } else {
         $message = join("<br>", $photo->errors);
     }
+
 }
+
+
 ?>
+<?php include ("includes/sidebar.php"); ?>
+<?php include ("includes/content-top.php"); ?>
+
+
 
 <div class="container-fluid">
     <div class="row">

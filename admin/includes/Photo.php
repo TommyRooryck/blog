@@ -1,7 +1,7 @@
 <?php
 
 
-class Photos extends Db_object
+class Photo extends Db_object
 {
     /**Static variabelen**/
     protected static $db_table = "photos";
