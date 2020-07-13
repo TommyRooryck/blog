@@ -1,8 +1,36 @@
-/*!
- * Start Bootstrap - Blog Post (https://startbootstrap.com/template-overviews/blog-post)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
- */
+
+
+*{
+  padding: 0;
+  margin: 0;
+}
 body {
-  padding-top: 56px;
+  padding-top: 58px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  color: black;
+
+}
+
+a :hover{
+  text-decoration: none !important;
+
+}
+
+.active{
+  font-weight: bold;
+  transform: scale(1.25);
+}
+
+.card{
+  width: 26rem;
+}
+
+.card-body{
+  width: 26rem;
 }

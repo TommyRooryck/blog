@@ -56,6 +56,19 @@ class User extends Db_object
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
 
+
+    public static function check_username_exist($username){
+        global $database;
+        $username = $database->escape_string($username);
+
+        $sql = "SELECT * FROM " . self::$db_table . " WHERE username = '{$username}'";
+
+        $the_result_array = self::find_this_query($sql);
+        return !empty($the_result_array) ? array_shift($the_result_array) : false;
+    }
+
+
+
     /**Locatie van de afbeelding**/
     public function image_path_and_placeholder()
     {
@@ -70,7 +83,7 @@ class User extends Db_object
 
         public function set_file($file) //Zie Photo() class
         {
-            echo $file;
+           // print $file;
 
             if (empty($file) || !$file || !is_array($file)){
                 $this->errors[] = "There was no file uploaded here";

@@ -9,7 +9,23 @@ if (!$session->is_signed_in()){
 }
 
 $user= new User(); //Creëer een niewe instantie van het object user met de naam $user
+$message = "";
+
 if (isset($_POST['add_user'])){
+    if (empty($user->check_username_exist(trim($_POST['username']))) ){
+        $user->username = trim($_POST['username']);
+        $user->password = trim($_POST['password']);
+        $user->first_name = trim($_POST['first_name']);
+        $user->last_name= trim($_POST['last_name']);
+        $user->set_file($_FILES['image']);
+        $user->save_user_and_image();
+        redirect('users.php');
+    } else{
+        $message = "Username is already taken!";
+    }
+}
+
+/*if (isset($_POST['add_user'])){
     if ($user){
         $user->username = trim($_POST['username']);
         $user->password = trim($_POST['password']);
@@ -19,7 +35,7 @@ if (isset($_POST['add_user'])){
         $user->save_user_and_image();
         redirect('users.php');
     }
-}
+} */
 
 
 /*
@@ -41,21 +57,26 @@ if (isset($_POST['add_user'])){
             <form action="add_User.php" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-12">
+                        <h5>
+                            <div class="text-danger border-danger">
+                                <?php echo $message ?>
+                            </div>
+                        </h5>
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" name="username" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="file">User Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <input type="file" name="image" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="first_name">First Name</label>
-                            <input type="text" name="first_name" class="form-control">
+                            <input type="text" name="first_name" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label for="last_name">Last Name</label>

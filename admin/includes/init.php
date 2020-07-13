@@ -14,14 +14,15 @@ defined('IMAGES_PATH') ? null : define('IMAGES_PATH', SITE_ROOT . DS . 'admin' .
 ?>
 <!-- Require_once zal ons een error geven. Include geeft ons enkel een warning. -->
 
-<?php require_once ("Db_object.php");?>
-<?php require_once ("functions.php"); ?>
-<?php require_once ("config.php"); ?>
-<?php require_once ("Database.php"); ?>
-<?php require_once ("User.php"); ?>
-<?php require_once ("Session.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "Db_object.php");?>
+<?php require_once (INCLUDES_PATH . DS . "functions.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "config.php"); ?>
+<?php require_once (INCLUDES_PATH .DS.  "Database.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "User.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "Session.php"); ?>
 <?php require_once(dirname(__FILE__) . DS . 'Photo.php'); ?>
-<?php require_once ("Comment.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "Comment.php"); ?>
+<?php require_once (INCLUDES_PATH . DS . "Paginate.php"); ?>
 
 
 

@@ -14,7 +14,7 @@ $comments = Comment::find_all();
     <div class="row">
         <div class="col-12">
             <h2>Comments</h2>
-            <td><a href="add_Comment.php" class="btn btn-primary rounded-0"><i class="fas fa-comment-plus"></i>Add Comment</a></td>
+            <td><a href="../index.php" class="btn btn-primary rounded-0"><i class="fas fa-comment-plus"></i>Add Comment</a></td>
             <table class="table table-header">
                 <thead>
                 <tr>
